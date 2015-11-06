@@ -108,6 +108,24 @@
                                 CardType.Jack, CardType.Ten,
                                 CardType.Three
                             }
+                    },
+                new object[]
+                    {
+                        ExpectedCompareResult.SecondShouldBeBetter,
+                        HandRankType.HighCard,
+                        new[]
+                            {
+                                CardType.Ace, CardType.King,
+                                CardType.Queen, CardType.Jack,
+                                CardType.Two
+                            },
+                        HandRankType.HighCard,
+                        new[]
+                            {
+                                CardType.Ace, CardType.King,
+                                CardType.Queen, CardType.Jack,
+                                CardType.Three
+                            }
                     }
             };
 
@@ -286,6 +304,22 @@
                             {
                                 CardType.Ace, CardType.Ace,
                                 CardType.King, CardType.King, CardType.Queen
+                            },
+                        HandRankType.TwoPairs,
+                        new[]
+                            {
+                                CardType.Ace, CardType.Ace,
+                                CardType.King, CardType.King, CardType.Jack
+                            }
+                    },
+                new object[]
+                    {
+                        ExpectedCompareResult.SecondShouldBeBetter,
+                        HandRankType.TwoPairs,
+                        new[]
+                            {
+                                CardType.Ace, CardType.Ace,
+                                CardType.King, CardType.King, CardType.Nine
                             },
                         HandRankType.TwoPairs,
                         new[]
@@ -638,7 +672,38 @@
 
         private static readonly object[] BothHaveFlushCases =
             {
-                // Tests from BothHaveHighCardCases are sufficient
+                new object[]
+                    {
+                        ExpectedCompareResult.FirstShouldBeBetter,
+                        HandRankType.Flush,
+                        new[]
+                            {
+                                CardType.Ace, CardType.King, CardType.Ten,
+                                CardType.Eight, CardType.Two
+                            },
+                        HandRankType.Flush,
+                        new[]
+                            {
+                                CardType.Ace, CardType.King, CardType.Nine,
+                                CardType.Eight, CardType.Five
+                            }
+                    },
+                new object[]
+                    {
+                        ExpectedCompareResult.TheyShouldBeEqual,
+                        HandRankType.Flush,
+                        new[]
+                            {
+                                CardType.Ace, CardType.King, CardType.Ten,
+                                CardType.Eight, CardType.Two
+                            },
+                        HandRankType.Flush,
+                        new[]
+                            {
+                                CardType.Ace, CardType.King, CardType.Ten,
+                                CardType.Eight, CardType.Two
+                            }
+                    }
             };
 
         private static readonly object[] BothHaveFullHouseCases =
@@ -823,7 +888,60 @@
 
         private static readonly object[] BothHaveStraightFlushCases =
             {
-                // Tests from BothHaveStraightCases are sufficient
+                new object[]
+                    {
+                        ExpectedCompareResult.TheyShouldBeEqual,
+                        HandRankType.StraightFlush,
+                        new[]
+                            {
+                                CardType.Ace, CardType.King,
+                                CardType.Queen, CardType.Jack,
+                                CardType.Ten
+                            },
+                        HandRankType.StraightFlush,
+                        new[]
+                            {
+                                CardType.Ace, CardType.King,
+                                CardType.Queen, CardType.Jack,
+                                CardType.Ten
+                            }
+                    },
+                new object[]
+                    {
+                        ExpectedCompareResult.FirstShouldBeBetter,
+                        HandRankType.StraightFlush,
+                        new[]
+                            {
+                                CardType.Ace, CardType.King,
+                                CardType.Queen, CardType.Jack,
+                                CardType.Ten
+                            },
+                        HandRankType.StraightFlush,
+                        new[]
+                            {
+                                CardType.King, CardType.Queen,
+                                CardType.Jack, CardType.Ten,
+                                CardType.Nine
+                            }
+                    },
+                new object[]
+                    {
+                        ExpectedCompareResult.FirstShouldBeBetter,
+                        HandRankType.StraightFlush,
+                        new[]
+                            {
+                                CardType.Ace, CardType.King,
+                                CardType.Queen, CardType.Jack,
+                                CardType.Ten
+                            },
+                        HandRankType.StraightFlush,
+                        new[]
+                            {
+                                CardType.Five, CardType.Four,
+                                CardType.Three, CardType.Two,
+                                CardType.Ace
+                            }
+                    }
             };
 
         public enum ExpectedCompareResult

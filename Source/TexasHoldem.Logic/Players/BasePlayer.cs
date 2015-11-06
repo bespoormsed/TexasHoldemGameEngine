@@ -10,12 +10,18 @@
 
         protected IReadOnlyCollection<Card> CommunityCards { get; private set; }
 
+        protected Card FirstCard { get; private set; }
+
+        protected Card SecondCard { get; private set; }
+
         public virtual void StartGame(StartGameContext context)
         {
         }
 
         public virtual void StartHand(StartHandContext context)
         {
+            this.FirstCard = context.FirstCard;
+            this.SecondCard = context.SecondCard;
         }
 
         public virtual void StartRound(StartRoundContext context)
@@ -25,11 +31,11 @@
 
         public abstract PlayerAction GetTurn(GetTurnContext context);
 
-        public virtual void EndRound()
+        public virtual void EndRound(EndRoundContext context)
         {
         }
 
-        public virtual void EndHand()
+        public virtual void EndHand(EndHandContext context)
         {
         }
 

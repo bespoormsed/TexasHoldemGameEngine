@@ -64,7 +64,7 @@
             }
 
             // While at least two players have money
-            while (this.allPlayers.Count(x => x.Money > 0) > 1)
+            while (this.allPlayers.Count(x => x.PlayerMoney.Money > 0) > 1)
             {
                 this.HandsPlayed++;
 
@@ -73,13 +73,13 @@
 
                 // Rotate players
                 var hand = this.HandsPlayed % 2 == 1
-                               ? new HandLogic(new[] { this.firstPlayer, this.secondPlayer }, this.HandsPlayed, smallBlind)
-                               : new HandLogic(new[] { this.secondPlayer, this.firstPlayer }, this.HandsPlayed, smallBlind);
+                               ? new TwoPlayersHandLogic(new[] { this.firstPlayer, this.secondPlayer }, this.HandsPlayed, smallBlind)
+                               : new TwoPlayersHandLogic(new[] { this.secondPlayer, this.firstPlayer }, this.HandsPlayed, smallBlind);
 
                 hand.Play();
             }
 
-            var winner = this.allPlayers.FirstOrDefault(x => x.Money > 0);
+            var winner = this.allPlayers.FirstOrDefault(x => x.PlayerMoney.Money > 0);
             foreach (var player in this.allPlayers)
             {
                 player.EndGame(new EndGameContext(winner.Name));

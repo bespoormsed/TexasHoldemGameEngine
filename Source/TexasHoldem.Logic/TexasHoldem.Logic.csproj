@@ -49,8 +49,9 @@
     <Compile Include="Cards\IDeck.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\RandomProvider.cs" />
-    <Compile Include="GameMechanics\BettingLogic.cs" />
-    <Compile Include="GameMechanics\HandLogic.cs" />
+    <Compile Include="GameMechanics\InternalPlayerMoney.cs" />
+    <Compile Include="GameMechanics\TwoPlayersBettingLogic.cs" />
+    <Compile Include="GameMechanics\TwoPlayersHandLogic.cs" />
     <Compile Include="GameMechanics\ITexasHoldemGame.cs" />
     <Compile Include="GameMechanics\TwoPlayersTexasHoldemGame.cs" />
     <Compile Include="GameRoundType.cs" />
@@ -64,6 +65,8 @@
     <Compile Include="Players\BasePlayer.cs" />
     <Compile Include="Players\EndGameContext.cs" />
     <Compile Include="GameMechanics\InternalPlayer.cs" />
+    <Compile Include="Players\EndHandContext.cs" />
+    <Compile Include="Players\EndRoundContext.cs" />
     <Compile Include="Players\IPlayer.cs" />
     <Compile Include="Players\GetTurnContext.cs" />
     <Compile Include="Players\PlayerActionAndName.cs" />

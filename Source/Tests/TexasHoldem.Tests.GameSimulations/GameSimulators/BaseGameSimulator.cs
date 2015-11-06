@@ -2,7 +2,6 @@
 {
     using System;
     using System.Diagnostics;
-    using System.Threading.Tasks;
 
     using TexasHoldem.Logic.GameMechanics;
     using TexasHoldem.Logic.Players;
@@ -21,7 +20,7 @@
             var secondPlayerWins = 0;
             var handsPlayed = 0;
 
-            //Parallel.For(
+            //TODO: Parallel.For(
             //    1,
             //    numberOfGames + 1,
             //    i =>
